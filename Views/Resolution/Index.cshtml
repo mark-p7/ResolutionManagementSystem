@@ -9,10 +9,9 @@
     <div style="border: 2px solid black; padding: 20px; margin: 20px 0px">
         <h2>Owner User ID: @item.OwnerUserID</h2>
         <h2>Resolution ID: @item.ResolutionId</h2>
-        <input type="submit" value="Accept" class="btn btn-primary" />
-        @* <a asp-page="./FeedbackRequest">
-            <input type="button" value="Reject" class="btn btn-danger" />
-        </a> *@
+        <a asp-controller="FeedbackRequest" asp-action="Index">
+            <input type="button" value="Reject" class="btn btn-primary" />
+        </a>
 
     </div>
 }

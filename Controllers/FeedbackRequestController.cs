@@ -17,7 +17,8 @@ namespace ResolutionManagement.Controllers
         {
             _logger = logger;
         }
-
+        [Route("FeedbackRequest")]
+        [Route("FeedbackRequest/Index")]
         public IActionResult Index()
         {
             return View();

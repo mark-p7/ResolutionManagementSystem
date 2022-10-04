@@ -21,13 +21,24 @@ namespace ResolutionManagement.Controllers
             _db = db;
             _logger = logger;
         }
-
+        [Route("Resolution")]
+        [Route("Resolution/Index")]
         public IActionResult Index()
         {
             ViewData["List"] = (from Resolution in _db.Resolutions select Resolution).ToArray();
             return View();
         }
+        [Route("Resolution/Create")]
+        public IActionResult Create()
+        {
+            var resolutionModel = new Resolution();
+            return View(resolutionModel);
+        }
 
+        // public ActionResult Feedback()
+        // {
+        //     return RedirectToAction("Index", "FeedbackRequestController");
+        // }
         // [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         // public IActionResult Error()
         // {

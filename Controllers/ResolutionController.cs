@@ -24,7 +24,7 @@ namespace ResolutionManagement.Controllers
 
         public IActionResult Index()
         {
-            ViewData["List"] = (from Resolution in _db.Resolutions select Resolution).ToList();
+            ViewData["List"] = (from Resolution in _db.Resolutions select Resolution).ToArray();
             return View();
         }
 

@@ -49,7 +49,7 @@ namespace ResolutionManagement.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Resolutions",
+                name: "Resolution",
                 columns: table => new
                 {
                     ResolutionId = table.Column<int>(type: "int", nullable: false)
@@ -61,7 +61,7 @@ namespace ResolutionManagement.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Resolutions", x => x.ResolutionId);
+                    table.PrimaryKey("PK_Resolution", x => x.ResolutionId);
                 });
 
             migrationBuilder.CreateTable(
@@ -171,7 +171,7 @@ namespace ResolutionManagement.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FeedbackRequests",
+                name: "FeedbackRequest",
                 columns: table => new
                 {
                     FeedbackRequestId = table.Column<int>(type: "int", nullable: false)
@@ -182,12 +182,50 @@ namespace ResolutionManagement.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FeedbackRequests", x => x.FeedbackRequestId);
+                    table.PrimaryKey("PK_FeedbackRequest", x => x.FeedbackRequestId);
                     table.ForeignKey(
-                        name: "FK_FeedbackRequests_Resolutions_ResolutionId",
+                        name: "FK_FeedbackRequest_Resolution_ResolutionId",
                         column: x => x.ResolutionId,
-                        principalTable: "Resolutions",
+                        principalTable: "Resolution",
                         principalColumn: "ResolutionId");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Resolution",
+                columns: new[] { "ResolutionId", "Abstract", "CreationDate", "OwnerUserID", "Status" },
+                values: new object[,]
+                {
+                    { 0, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4876), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
+                    { 1, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4920), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
+                    { 2, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4950), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "in progress" },
+                    { 3, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4953), "5559d343-5062-4cd1-b0ae-25301e70a10d", "in progress" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "FeedbackRequest",
+                columns: new[] { "FeedbackRequestId", "CreationDate", "OwnerUserID", "ResolutionId" },
+                values: new object[,]
+                {
+                    { 0, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4975), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0 },
+                    { 1, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4980), "221fedc9-3ad4-492e-bfc0-20f198923a24", 0 },
+                    { 2, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4983), "d34e5684-030b-4bf1-ba0b-51c424468294", 0 },
+                    { 3, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4985), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0 },
+                    { 4, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4988), "5559d343-5062-4cd1-b0ae-25301e70a10d", 0 },
+                    { 5, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4992), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1 },
+                    { 6, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4994), "221fedc9-3ad4-492e-bfc0-20f198923a24", 1 },
+                    { 7, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4996), "d34e5684-030b-4bf1-ba0b-51c424468294", 1 },
+                    { 8, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4999), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1 },
+                    { 9, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5002), "5559d343-5062-4cd1-b0ae-25301e70a10d", 1 },
+                    { 10, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5004), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 2 },
+                    { 11, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5007), "221fedc9-3ad4-492e-bfc0-20f198923a24", 2 },
+                    { 12, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5009), "d34e5684-030b-4bf1-ba0b-51c424468294", 2 },
+                    { 13, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5011), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2 },
+                    { 14, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5014), "5559d343-5062-4cd1-b0ae-25301e70a10d", 2 },
+                    { 15, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5016), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3 },
+                    { 16, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5019), "221fedc9-3ad4-492e-bfc0-20f198923a24", 3 },
+                    { 17, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5022), "d34e5684-030b-4bf1-ba0b-51c424468294", 3 },
+                    { 18, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5024), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3 },
+                    { 19, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5027), "5559d343-5062-4cd1-b0ae-25301e70a10d", 3 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -230,8 +268,8 @@ namespace ResolutionManagement.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FeedbackRequests_ResolutionId",
-                table: "FeedbackRequests",
+                name: "IX_FeedbackRequest_ResolutionId",
+                table: "FeedbackRequest",
                 column: "ResolutionId");
         }
 
@@ -253,7 +291,7 @@ namespace ResolutionManagement.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "FeedbackRequests");
+                name: "FeedbackRequest");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -262,7 +300,7 @@ namespace ResolutionManagement.Data.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Resolutions");
+                name: "Resolution");
         }
     }
 }

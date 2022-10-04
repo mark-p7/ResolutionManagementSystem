@@ -12,7 +12,7 @@ using ResolutionManagement.Data;
 namespace ResolutionManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221004034121_m1")]
+    [Migration("20221004050042_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -247,7 +247,149 @@ namespace ResolutionManagement.Data.Migrations
 
                     b.HasIndex("ResolutionId");
 
-                    b.ToTable("FeedbackRequests");
+                    b.ToTable("FeedbackRequest", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            FeedbackRequestId = 0,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4975),
+                            OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
+                            ResolutionId = 0
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 1,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4980),
+                            OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
+                            ResolutionId = 0
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 2,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4983),
+                            OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
+                            ResolutionId = 0
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 3,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4985),
+                            OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
+                            ResolutionId = 0
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 4,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4988),
+                            OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
+                            ResolutionId = 0
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 5,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4992),
+                            OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
+                            ResolutionId = 1
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 6,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4994),
+                            OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
+                            ResolutionId = 1
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 7,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4996),
+                            OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
+                            ResolutionId = 1
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 8,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4999),
+                            OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
+                            ResolutionId = 1
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 9,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5002),
+                            OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
+                            ResolutionId = 1
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 10,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5004),
+                            OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
+                            ResolutionId = 2
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 11,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5007),
+                            OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
+                            ResolutionId = 2
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 12,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5009),
+                            OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
+                            ResolutionId = 2
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 13,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5011),
+                            OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
+                            ResolutionId = 2
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 14,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5014),
+                            OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
+                            ResolutionId = 2
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 15,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5016),
+                            OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
+                            ResolutionId = 3
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 16,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5019),
+                            OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
+                            ResolutionId = 3
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 17,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5022),
+                            OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
+                            ResolutionId = 3
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 18,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5024),
+                            OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
+                            ResolutionId = 3
+                        },
+                        new
+                        {
+                            FeedbackRequestId = 19,
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5027),
+                            OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
+                            ResolutionId = 3
+                        });
                 });
 
             modelBuilder.Entity("ResolutionManagement.Models.Resolution", b =>
@@ -272,7 +414,41 @@ namespace ResolutionManagement.Data.Migrations
 
                     b.HasKey("ResolutionId");
 
-                    b.ToTable("Resolutions");
+                    b.ToTable("Resolution", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            ResolutionId = 0,
+                            Abstract = "",
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4876),
+                            OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
+                            Status = "in progress"
+                        },
+                        new
+                        {
+                            ResolutionId = 1,
+                            Abstract = "",
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4920),
+                            OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
+                            Status = "in progress"
+                        },
+                        new
+                        {
+                            ResolutionId = 2,
+                            Abstract = "",
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4950),
+                            OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
+                            Status = "in progress"
+                        },
+                        new
+                        {
+                            ResolutionId = 3,
+                            Abstract = "",
+                            CreationDate = new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4953),
+                            OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
+                            Status = "in progress"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

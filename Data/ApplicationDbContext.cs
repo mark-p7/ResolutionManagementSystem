@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ResolutionManagement.Models;
+using ResolutionManagementSystem.Data;
 
 namespace ResolutionManagement.Data;
 
@@ -14,4 +15,12 @@ public class ApplicationDbContext : IdentityDbContext
     public DbSet<Resolution> Resolutions { get; set; }
 
     public DbSet<FeedbackRequest> FeedbackRequests { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+        builder.Entity<Resolution>().ToTable("Resolution");
+        builder.Entity<FeedbackRequest>().ToTable("FeedbackRequest");
+        builder.Seed();
+    }
 }

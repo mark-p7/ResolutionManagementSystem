@@ -1,0 +1,10 @@
+@{
+    ViewData["Title"] = "Index";
+    FeedbackRequest feedback = ViewData["Feedback"] as FeedbackRequest;
+}
+
+<div>
+    <h1>@feedback.FeedbackRequestId</h1>
+    <h2>@feedback.OwnerUserID</h2>
+    <h2>@feedback.ResolutionId</h2>
+</div>

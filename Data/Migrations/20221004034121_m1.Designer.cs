@@ -12,7 +12,7 @@ using ResolutionManagement.Data;
 namespace ResolutionManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221004031748_m1")]
+    [Migration("20221004034121_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

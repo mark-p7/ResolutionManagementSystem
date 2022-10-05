@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ResolutionManagement.Models;
 using ResolutionManagementSystem.Data;
@@ -13,7 +14,6 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<Resolution> Resolutions { get; set; }
-
     public DbSet<FeedbackRequest> FeedbackRequests { get; set; }
     public object Resolution { get; internal set; }
 

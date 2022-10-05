@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,18 +15,40 @@ namespace ResolutionManagement.Controllers
     {
         private ApplicationDbContext _context;
         private readonly ILogger<ResolutionController> _logger;
-
-        public FeedbackRequestsController(ILogger<ResolutionController> logger, ApplicationDbContext context)
+        private readonly UserManager<IdentityUser> _userManager;
+        public FeedbackRequestsController(ILogger<ResolutionController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
+            _userManager = userManager;
             _context = context;
             _logger = logger;
         }
 
-        // GET: FeedbackRequests
+        // GET: FeedbackRequestsa
         public async Task<IActionResult> Index()
         {
+            var id = _userManager.GetUserId(User);
+            List<FeedbackRequest> feedbacks = await (from FeedbackRequest in _context.FeedbackRequests select FeedbackRequest).ToListAsync();
+            foreach (var item in feedbacks)
+            {
+                Console.Write(item.OwnerUserID + "\n");
+            }
+            Console.Write("USER ID:  " + id + "\n\n");
+            List<FeedbackRequest> userFeedbacks = feedbacks.FindAll(feedback => feedback.OwnerUserID == id);
+
+            // FeedbackRequest[] userFeedbacks = Array.FindAll(feedbacks, feedback => feedback.OwnerUserID == id);
+            // foreach (var item in userFeedbacks)
+            // {
+            //     Console.Write(item.OwnerUserID + "\n");
+            // }
+            // return View(userFeedbacks);
+            // foreach (var feedback in feedbacks)
+            // {
+            //     if(feedback.OwnerUserID == id){
+
+            //     }
+            // }
             return _context.Resolutions != null ? 
-                    View(await _context.FeedbackRequests.ToListAsync()) :
+                    View(userFeedbacks) :
                     Problem("Entity set 'ApplicationDbContext.FeedbackRequests'  is null.");
             // var applicationDbContext = _context.FeedbackRequests.Include(f => f.Resolution);
             // return View(await applicationDbContext.ToListAsync());
@@ -160,14 +183,14 @@ namespace ResolutionManagement.Controllers
             {
                 _context.FeedbackRequests.Remove(feedbackRequest);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool FeedbackRequestExists(int? id)
         {
-          return (_context.FeedbackRequests?.Any(e => e.FeedbackRequestId == id)).GetValueOrDefault();
+            return (_context.FeedbackRequests?.Any(e => e.FeedbackRequestId == id)).GetValueOrDefault();
         }
     }
 }

@@ -195,10 +195,10 @@ namespace ResolutionManagement.Data.Migrations
                 columns: new[] { "ResolutionId", "Abstract", "CreationDate", "OwnerUserID", "Status" },
                 values: new object[,]
                 {
-                    { 0, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4876), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
-                    { 1, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4920), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
-                    { 2, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4950), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "in progress" },
-                    { 3, "", new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4953), "5559d343-5062-4cd1-b0ae-25301e70a10d", "in progress" }
+                    { 0, "", new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3480), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
+                    { 1, "", new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3530), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
+                    { 2, "", new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3530), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "in progress" },
+                    { 3, "", new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3530), "5559d343-5062-4cd1-b0ae-25301e70a10d", "in progress" }
                 });
 
             migrationBuilder.InsertData(
@@ -206,26 +206,26 @@ namespace ResolutionManagement.Data.Migrations
                 columns: new[] { "FeedbackRequestId", "CreationDate", "OwnerUserID", "ResolutionId" },
                 values: new object[,]
                 {
-                    { 0, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4975), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0 },
-                    { 1, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4980), "221fedc9-3ad4-492e-bfc0-20f198923a24", 0 },
-                    { 2, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4983), "d34e5684-030b-4bf1-ba0b-51c424468294", 0 },
-                    { 3, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4985), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0 },
-                    { 4, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4988), "5559d343-5062-4cd1-b0ae-25301e70a10d", 0 },
-                    { 5, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4992), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1 },
-                    { 6, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4994), "221fedc9-3ad4-492e-bfc0-20f198923a24", 1 },
-                    { 7, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4996), "d34e5684-030b-4bf1-ba0b-51c424468294", 1 },
-                    { 8, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(4999), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1 },
-                    { 9, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5002), "5559d343-5062-4cd1-b0ae-25301e70a10d", 1 },
-                    { 10, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5004), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 2 },
-                    { 11, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5007), "221fedc9-3ad4-492e-bfc0-20f198923a24", 2 },
-                    { 12, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5009), "d34e5684-030b-4bf1-ba0b-51c424468294", 2 },
-                    { 13, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5011), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2 },
-                    { 14, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5014), "5559d343-5062-4cd1-b0ae-25301e70a10d", 2 },
-                    { 15, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5016), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3 },
-                    { 16, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5019), "221fedc9-3ad4-492e-bfc0-20f198923a24", 3 },
-                    { 17, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5022), "d34e5684-030b-4bf1-ba0b-51c424468294", 3 },
-                    { 18, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5024), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3 },
-                    { 19, new DateTime(2022, 10, 3, 22, 0, 42, 684, DateTimeKind.Local).AddTicks(5027), "5559d343-5062-4cd1-b0ae-25301e70a10d", 3 }
+                    { 0, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3550), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0 },
+                    { 1, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560), "221fedc9-3ad4-492e-bfc0-20f198923a24", 0 },
+                    { 2, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560), "d34e5684-030b-4bf1-ba0b-51c424468294", 0 },
+                    { 3, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0 },
+                    { 4, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560), "5559d343-5062-4cd1-b0ae-25301e70a10d", 0 },
+                    { 5, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1 },
+                    { 6, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570), "221fedc9-3ad4-492e-bfc0-20f198923a24", 1 },
+                    { 7, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570), "d34e5684-030b-4bf1-ba0b-51c424468294", 1 },
+                    { 8, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1 },
+                    { 9, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570), "5559d343-5062-4cd1-b0ae-25301e70a10d", 1 },
+                    { 10, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 2 },
+                    { 11, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580), "221fedc9-3ad4-492e-bfc0-20f198923a24", 2 },
+                    { 12, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580), "d34e5684-030b-4bf1-ba0b-51c424468294", 2 },
+                    { 13, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2 },
+                    { 14, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590), "5559d343-5062-4cd1-b0ae-25301e70a10d", 2 },
+                    { 15, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590), "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3 },
+                    { 16, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590), "221fedc9-3ad4-492e-bfc0-20f198923a24", 3 },
+                    { 17, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590), "d34e5684-030b-4bf1-ba0b-51c424468294", 3 },
+                    { 18, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590), "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3 },
+                    { 19, new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3600), "5559d343-5062-4cd1-b0ae-25301e70a10d", 3 }
                 });
 
             migrationBuilder.CreateIndex(

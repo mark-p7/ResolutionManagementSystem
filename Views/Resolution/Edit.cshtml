@@ -1,22 +1,22 @@
 @model ResolutionManagement.Models.Resolution
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>Resolution</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @* <div class="form-group">
+            <div class="form-group">
                 <label asp-for="ResolutionId" class="control-label"></label>
                 <input asp-for="ResolutionId" class="form-control" />
-                <span asp-validation-for="ResolutionId" class ="form-control" asp-items="ViewBag.ResolutionId"></span>
-            </div> *@
+                <span asp-validation-for="ResolutionId" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="CreationDate" class="control-label"></label>
                 <input asp-for="CreationDate" class="form-control" />
@@ -38,7 +38,7 @@
                 <span asp-validation-for="OwnerUserID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

@@ -1,13 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace ResolutionManagement.Models
 {
     public class FeedbackRequest
-    {
+    {   
+        [Key]
         public int? FeedbackRequestId { get; set; }
         public DateTime? CreationDate { get; set; }
         public string? OwnerUserID { get; set; }

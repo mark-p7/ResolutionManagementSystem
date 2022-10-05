@@ -1,22 +1,60 @@
+@model IEnumerable<ResolutionManagement.Models.Resolution>
+
 @{
     ViewData["Title"] = "Index";
-    Resolution[] resolutions = ViewData["List"] as Resolution[];
 }
 
 <h1>Resolution</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">
+        Create New</a>
 </p>
-
-@foreach (var item in resolutions)
-{
-    <div style="border: 2px solid black; padding: 20px; margin: 20px 0px">
-        <h2>Owner User ID: @item.OwnerUserID</h2>
-        <h2>Resolution ID: @item.ResolutionId</h2>
-        <a href="/FeedbackRequest/Redirect/@item.ResolutionId">
-            <input type="button" value="Resolve" class="btn btn-primary" />
-        </a>
-
-    </div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ResolutionId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Abstract)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerUserID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResolutionId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abstract)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerUserID)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ResolutionId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ResolutionId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ResolutionId })
+            </td>
+        </tr>
 }
+    </tbody>
+</table>

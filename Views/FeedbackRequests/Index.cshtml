@@ -1,0 +1,77 @@
+@model IEnumerable<ResolutionManagement.Models.FeedbackRequest>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Feedback Requests</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FeedbackRequestId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreationDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ESignature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OwnerUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resolved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Accepted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResolutionId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackRequestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESignature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resolved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accepted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ResolutionId)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackRequestId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.FeedbackRequestId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackRequestId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

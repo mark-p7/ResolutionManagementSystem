@@ -12,7 +12,7 @@ using ResolutionManagement.Data;
 namespace ResolutionManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221005043212_m1")]
+    [Migration("20221005050949_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -234,14 +234,26 @@ namespace ResolutionManagement.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("FeedbackRequestId"), 1L, 1);
 
+                    b.Property<bool?>("Accepted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ESignature")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OwnerUserID")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ResolutionId")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("Resolved")
+                        .HasColumnType("bit");
 
                     b.HasKey("FeedbackRequestId");
 
@@ -253,142 +265,222 @@ namespace ResolutionManagement.Data.Migrations
                         new
                         {
                             FeedbackRequestId = 0,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3550),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9350),
+                            Description = "This sounds like a good proposal",
+                            ESignature = "bob jones",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
-                            ResolutionId = 0
+                            ResolutionId = 0,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 1,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560),
+                            Accepted = true,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9350),
+                            Description = "This sounds like a good proposal",
+                            ESignature = "bob jones",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
-                            ResolutionId = 0
+                            ResolutionId = 0,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 2,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9350),
+                            Description = "I have this proposal",
+                            ESignature = "jane doe",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
-                            ResolutionId = 0
+                            ResolutionId = 0,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 3,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560),
+                            Accepted = true,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9350),
+                            Description = "Sounds good",
+                            ESignature = "Shawn Kal",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
-                            ResolutionId = 0
+                            ResolutionId = 0,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 4,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3560),
+                            Accepted = true,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9360),
+                            Description = "i like this",
+                            ESignature = "Emily Low",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
-                            ResolutionId = 0
+                            ResolutionId = 0,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 5,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9360),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
-                            ResolutionId = 1
+                            ResolutionId = 1,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 6,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9360),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
-                            ResolutionId = 1
+                            ResolutionId = 1,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 7,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9370),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
-                            ResolutionId = 1
+                            ResolutionId = 1,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 8,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9370),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
-                            ResolutionId = 1
+                            ResolutionId = 1,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 9,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3570),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9380),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
-                            ResolutionId = 1
+                            ResolutionId = 1,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 10,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580),
+                            Accepted = true,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9380),
+                            Description = "This sounds like a good proposal",
+                            ESignature = "bob jones",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
-                            ResolutionId = 2
+                            ResolutionId = 2,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 11,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580),
+                            Accepted = true,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9380),
+                            Description = "This sounds like a good proposal",
+                            ESignature = "bob jones",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
-                            ResolutionId = 2
+                            ResolutionId = 2,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 12,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9380),
+                            Description = "I hate this proposal",
+                            ESignature = "jane doe",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
-                            ResolutionId = 2
+                            ResolutionId = 2,
+                            Resolved = true
                         },
                         new
                         {
                             FeedbackRequestId = 13,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3580),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9390),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
-                            ResolutionId = 2
+                            ResolutionId = 2,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 14,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9390),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
-                            ResolutionId = 2
+                            ResolutionId = 2,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 15,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9390),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
-                            ResolutionId = 3
+                            ResolutionId = 3,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 16,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9390),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
-                            ResolutionId = 3
+                            ResolutionId = 3,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 17,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9400),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
-                            ResolutionId = 3
+                            ResolutionId = 3,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 18,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3590),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9400),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
-                            ResolutionId = 3
+                            ResolutionId = 3,
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 19,
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3600),
+                            Accepted = false,
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9400),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
-                            ResolutionId = 3
+                            ResolutionId = 3,
+                            Resolved = false
                         });
                 });
 
@@ -421,7 +513,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 0,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3480),
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9230),
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                             Status = "in progress"
                         },
@@ -429,7 +521,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 1,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3530),
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9300),
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                             Status = "in progress"
                         },
@@ -437,7 +529,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 2,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3530),
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9300),
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
                             Status = "in progress"
                         },
@@ -445,7 +537,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 3,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 4, 21, 32, 12, 709, DateTimeKind.Local).AddTicks(3530),
+                            CreationDate = new DateTime(2022, 10, 4, 22, 9, 49, 79, DateTimeKind.Local).AddTicks(9300),
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
                             Status = "in progress"
                         });

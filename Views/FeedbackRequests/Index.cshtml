@@ -6,9 +6,9 @@
 
 <h1>Feedback Requests</h1>
 
-<p>
+@* <p>
     <a asp-action="Create">Create New</a>
-</p>
+</p> *@
 <table class="table">
     <thead>
         <tr>
@@ -24,9 +24,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.ESignature)
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.OwnerUserID)
-            </th>
+            </th> *@
             <th>
                 @Html.DisplayNameFor(model => model.Resolved)
             </th>
@@ -54,9 +54,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.ESignature)
             </td>
-            <td>
+            @* <td>
                 @Html.DisplayFor(modelItem => item.OwnerUserID)
-            </td>
+            </td> *@
             <td>
                 @Html.DisplayFor(modelItem => item.Resolved)
             </td>
@@ -67,9 +67,12 @@
                 @Html.DisplayFor(modelItem => item.ResolutionId)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackRequestId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.FeedbackRequestId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackRequestId })
+                @if (item.Resolved == false)
+                {
+                    @Html.ActionLink("Edit", "Edit", new { id=item.FeedbackRequestId })
+                }
+                @Html.ActionLink("Details", "Details", new { id=item.FeedbackRequestId })
+                @* @Html.ActionLink("Delete", "Delete", new { id=item.FeedbackRequestId }) *@
             </td>
         </tr>
 }

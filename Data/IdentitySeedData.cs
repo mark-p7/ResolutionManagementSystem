@@ -48,6 +48,7 @@ namespace ResolutionManagement.Data
             {
                 var user = new IdentityUser
                 {
+                    Id = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
                     UserName = "1@1.1",
                     Email = "1@1.1"
                 };
@@ -64,6 +65,7 @@ namespace ResolutionManagement.Data
             {
                 var user = new IdentityUser
                 {
+                    Id = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                     UserName = "2@2.2",
                     Email = "2@2.2"
                 };
@@ -80,6 +82,7 @@ namespace ResolutionManagement.Data
             {
                 var user = new IdentityUser
                 {
+                    Id = "d34e5684-030b-4bf1-ba0b-51c424468294",
                     UserName = "3@3.3",
                     Email = "3@3.3"
                 };
@@ -96,6 +99,7 @@ namespace ResolutionManagement.Data
             {
                 var user = new IdentityUser
                 {
+                    Id = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
                     UserName = "4@4.4",
                     Email = "4@4.4"
                 };
@@ -112,6 +116,7 @@ namespace ResolutionManagement.Data
             {
                 var user = new IdentityUser
                 {
+                    Id = "5559d343-5062-4cd1-b0ae-25301e70a10d",
                     UserName = "5@5.5",
                     Email = "5@5.5"
                 };

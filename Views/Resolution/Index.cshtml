@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "Index";
+    Resolution[] ResolvedResolutions = ViewData["ResolutionsAlreadyResolved"] as Resolution[];
+    var i = 0;
+    Console.Write("\nResolved Length: " + ResolvedResolutions.Length + "\n");
 }
 
 <h1>Resolution</h1>
@@ -50,9 +53,17 @@
                 @Html.DisplayFor(modelItem => item.OwnerUserID)
             </td>
             <td>
+                @foreach (Resolution resolution in ResolvedResolutions)
+                {
+                    if (resolution.ResolutionId == item.ResolutionId)
+                    {
+                        @Html.ActionLink("Resolve", "Resolve", new { id=item.ResolutionId })
+                    }
+                }
+                |
                 @Html.ActionLink("Edit", "Edit", new { id=item.ResolutionId }) |
                 @Html.ActionLink("Details", "Details", new { id=item.ResolutionId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ResolutionId })
+                @Html.ActionLink("Delete", "Delete", new { id=item.ResolutionId }) |
             </td>
         </tr>
 }

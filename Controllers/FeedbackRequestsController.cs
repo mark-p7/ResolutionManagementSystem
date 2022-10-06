@@ -100,6 +100,7 @@ namespace ResolutionManagement.Controllers
         // GET: FeedbackRequests/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            Console.Write("HIT EDIT ----- ID: " + id + "\n");
             if (id == null || _context.FeedbackRequests == null)
             {
                 return NotFound();

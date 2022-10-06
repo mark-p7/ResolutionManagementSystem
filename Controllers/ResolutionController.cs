@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -14,18 +15,49 @@ namespace ResolutionManagement.Controllers
     {
         private ApplicationDbContext _context;
         private readonly ILogger<ResolutionController> _logger;
-        public ResolutionController(ILogger<ResolutionController> logger, ApplicationDbContext context)
+
+        private readonly UserManager<IdentityUser> _userManager;
+        public ResolutionController(ILogger<ResolutionController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _logger = logger;
+            _userManager = userManager;
         }
 
         // GET: Resolution
         public async Task<IActionResult> Index()
         {
-              return _context.Resolutions != null ? 
-                          View(await _context.Resolutions.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Resolutions'  is null.");
+            var id = _userManager.GetUserId(User);
+            // Finds Resolved Feedbacks
+            FeedbackRequest[] myFeedBackRequests = _context.FeedbackRequests.ToArray();
+            FeedbackRequest[] ResolvedFeedbacks = Array.FindAll(myFeedBackRequests, feedback => feedback.OwnerUserID == id && feedback.Resolved == false);
+            // Getting Array of Resolutions that are already resolved
+            Resolution[] resolutions = _context.Resolutions.ToArray();
+            Resolution[] filteredResolutionsByResolved = new Resolution[] { };
+            foreach (var resolution in resolutions)
+            {
+                foreach (var resolvedFeedback in ResolvedFeedbacks)
+                {
+                    if (resolution.ResolutionId == resolvedFeedback.ResolutionId && resolvedFeedback.Resolved == false)
+                    {
+                        int index = Array.IndexOf(filteredResolutionsByResolved, null);
+                        if (index != -1)
+                        {
+                            filteredResolutionsByResolved[index] = resolution;
+                        }
+                        else
+                        {
+                            Array.Resize(ref filteredResolutionsByResolved, filteredResolutionsByResolved.Length + 1);
+                            filteredResolutionsByResolved[filteredResolutionsByResolved.GetUpperBound(0)] = resolution;
+                        }
+                    }
+                }
+            }
+            Resolution[] filteredResolutionsByResolvedNoDuplicates = filteredResolutionsByResolved.Distinct().ToArray();
+            ViewData["ResolutionsAlreadyResolved"] = filteredResolutionsByResolvedNoDuplicates;
+            return _context.Resolutions != null ?
+                        View(await _context.Resolutions.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Resolutions'  is null.");
         }
 
         // GET: Resolution/Details/5
@@ -67,6 +99,33 @@ namespace ResolutionManagement.Controllers
             }
             ViewData["ResolutionId"] = new SelectList(_context.Resolutions, "ResolutionId", "Abstract", resolution.ResolutionId);
             return View(resolution);
+        }
+
+        // GET: Resolution/Resolve/5
+        public async Task<IActionResult> Resolve(int? id)
+        {
+            Console.Write("Hit Resolve + " + id + "\n\n\\n");
+            if (id == null || _context.Resolutions == null)
+            {
+                return NotFound();
+            }
+            FeedbackRequest[] feedbackRequests = (from FeedbackRequest in _context.FeedbackRequests select FeedbackRequest).ToArray();
+            foreach (FeedbackRequest feedbackRequest in feedbackRequests)
+            {
+                Console.Write(feedbackRequest.ResolutionId + "\n");
+                if (feedbackRequest.ResolutionId == id)
+                {
+                    Console.Write("Id found: " + feedbackRequest.ResolutionId + "\n\n");
+                    return RedirectToAction("Edit", "FeedbackRequests", new { id = feedbackRequest.FeedbackRequestId });
+                }
+            }
+            return NotFound();
+            // var feedback = await _context.FeedbackRequests.FindAsync();
+            // if (feedback == null)
+            // {
+            //     return NotFound();
+            // }
+            // ViewData["ResolutionId"] = new SelectList(_context.Resolutions, "ResolutionId", "Abstract", resolution.ResolutionId);
         }
 
         // GET: Resolution/Edit/5
@@ -153,14 +212,14 @@ namespace ResolutionManagement.Controllers
             {
                 _context.Resolutions.Remove(resolution);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ResolutionExists(int? id)
         {
-          return (_context.Resolutions?.Any(e => e.ResolutionId == id)).GetValueOrDefault();
+            return (_context.Resolutions?.Any(e => e.ResolutionId == id)).GetValueOrDefault();
         }
     }
 }

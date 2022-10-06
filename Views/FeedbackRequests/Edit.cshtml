@@ -4,7 +4,7 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h1>Resolve Feedback Request</h1>
 
 <h4>FeedbackRequest</h4>
 <hr />
@@ -14,12 +14,12 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FeedbackRequestId" class="control-label"></label>
-                <input asp-for="FeedbackRequestId" class="form-control" />
+                <input asp-for="FeedbackRequestId" class="form-control" readonly />
                 <span asp-validation-for="FeedbackRequestId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CreationDate" class="control-label"></label>
-                <input asp-for="CreationDate" class="form-control" />
+                <input asp-for="CreationDate" class="form-control" readonly />
                 <span asp-validation-for="CreationDate" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -34,22 +34,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="OwnerUserID" class="control-label"></label>
-                <input asp-for="OwnerUserID" class="form-control" />
+                <input asp-for="OwnerUserID" class="form-control" readonly />
                 <span asp-validation-for="OwnerUserID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Resolved" class="control-label"></label>
-                <input asp-for="Resolved" class="form-control" />
+                <input asp-for="Resolved" class="form-control" readonly />
                 <span asp-validation-for="Resolved" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Accepted" class="control-label"></label>
-                <input asp-for="Accepted" class="form-control" />
+                <label asp-for="Accepted" class="control-label">Accept? True or False</label>
+                <select asp-for="Accepted" class="form-control" >
+                    <option value="False">False</option>
+                    <option value="True">True</option>
+                </select>
+                @* <input asp-for="Accepted" class="form-control" /> *@
                 <span asp-validation-for="Accepted" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ResolutionId" class="control-label"></label>
-                <input asp-for="ResolutionId" class="form-control" />
+                <input asp-for="ResolutionId" class="form-control" readonly/>
                 <span asp-validation-for="ResolutionId" class="text-danger"></span>
             </div>
             <div class="form-group">

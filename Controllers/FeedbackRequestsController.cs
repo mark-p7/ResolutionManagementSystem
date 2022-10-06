@@ -47,7 +47,7 @@ namespace ResolutionManagement.Controllers
 
             //     }
             // }
-            return _context.Resolutions != null ? 
+            return _context.Resolutions != null ?
                     View(userFeedbacks) :
                     Problem("Entity set 'ApplicationDbContext.FeedbackRequests'  is null.");
             // var applicationDbContext = _context.FeedbackRequests.Include(f => f.Resolution);
@@ -115,6 +115,50 @@ namespace ResolutionManagement.Controllers
             return View(feedbackRequest);
         }
 
+        // public async Task checkResolutionStatus(int? ResolutionId)
+        // {
+        //     Console.Write("\n\n\n HIT RESOLUTION STATUS CHECK \n\n\n");
+        //     Resolution[] resolutions = _context.Resolutions.ToArray();
+        //     Console.Write("\n\n\n HIT RESOLUTION ARRAY \n\n\n");
+        //     Resolution resolutionInQuestion = new Resolution();
+        //     Console.Write("\n\n\n HIT RESOLUTION \n\n\n");
+        //     foreach (Resolution resolution in resolutions)
+        //     {
+        //         if (resolution.ResolutionId == ResolutionId)
+        //         {
+        //             resolutionInQuestion = resolution;
+        //         }
+        //     }
+        //     Console.Write("\n\n\n HIT resolutionInQuestion \n\n\n");
+        //     FeedbackRequest[] feedbackRequestsUnFiltered = _context.FeedbackRequests.ToArray();
+        //     Console.Write("\n\n\n HIT feedbackRequestsUnFiltered \n\n\n");
+        //     FeedbackRequest[] feedbackRequests = (from FeedbackRequest in feedbackRequestsUnFiltered where FeedbackRequest.ResolutionId == ResolutionId select FeedbackRequest).ToArray();
+        //     Console.Write("\n\n\n HIT feedbackRequests \n\n\n");
+        //     int rejected = 0;
+        //     int accepted = 0;
+        //     foreach (FeedbackRequest feedbackRequest in feedbackRequests)
+        //     {
+        //         if (feedbackRequest.Resolved == false)
+        //         {
+        //             return;
+        //         }
+        //         if (feedbackRequest.Accepted == true){
+        //             accepted++;
+        //         } else {
+        //             rejected++;
+        //         }
+        //     }
+        //     Console.Write("\n\nAccepted " + accepted + "\n");
+        //     Console.Write("\n\nRejected " + rejected + "\n");
+        //     if (accepted > rejected){
+        //         resolutionInQuestion.Status = "accepted";
+        //     } else {
+        //         resolutionInQuestion.Status = "rejected";
+        //     }
+        //     _context.Update(resolutionInQuestion);
+        //     await _context.SaveChangesAsync();
+        // }
+
         // POST: FeedbackRequests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -131,7 +175,47 @@ namespace ResolutionManagement.Controllers
             {
                 try
                 {
+                    feedbackRequest.Resolved = true;
                     _context.Update(feedbackRequest);
+                    await _context.SaveChangesAsync();
+                    int? ResolutionId = feedbackRequest.ResolutionId;
+                    Resolution[] resolutions = _context.Resolutions.ToArray();
+                    Resolution resolutionInQuestion = new Resolution();
+                    foreach (Resolution resolution in resolutions)
+                    {
+                        if (resolution.ResolutionId == ResolutionId)
+                        {
+                            resolutionInQuestion = resolution;
+                        }
+                    }
+                    FeedbackRequest[] feedbackRequestsUnFiltered = _context.FeedbackRequests.ToArray();
+                    FeedbackRequest[] feedbackRequests = (from FeedbackRequest in feedbackRequestsUnFiltered where FeedbackRequest.ResolutionId == ResolutionId select FeedbackRequest).ToArray();
+                    int rejected = 0;
+                    int accepted = 0;
+                    foreach (FeedbackRequest feedback in feedbackRequests)
+                    {
+                        if (feedback.Resolved == false)
+                        {
+                            return RedirectToAction(nameof(Index));
+                        }
+                        if (feedback.Accepted == true)
+                        {
+                            accepted++;
+                        }
+                        else
+                        {
+                            rejected++;
+                        }
+                    }
+                    if (accepted > rejected)
+                    {
+                        resolutionInQuestion.Status = "accepted";
+                    }
+                    else
+                    {
+                        resolutionInQuestion.Status = "rejected";
+                    }
+                    _context.Update(resolutionInQuestion);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

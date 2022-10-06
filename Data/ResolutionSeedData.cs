@@ -61,9 +61,9 @@ namespace ResolutionManagementSystem.Data
                 FeedbackRequestId=0,
                 CreationDate=DateTime.Now,
                 ResolutionId=0,
-                Description="This sounds like a good proposal",
-                ESignature="bob jones",
-                Resolved=true,
+                Description="",
+                ESignature="",
+                Resolved=false,
                 Accepted=false,
                 OwnerUserID="37c1ba03-d67c-437e-ac19-2b38b123c55a"
             },

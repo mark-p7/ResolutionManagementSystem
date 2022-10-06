@@ -12,7 +12,7 @@ using ResolutionManagement.Data;
 namespace ResolutionManagement.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221006031637_m1")]
+    [Migration("20221006212610_m1")]
     partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -266,18 +266,18 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 0,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2007),
-                            Description = "This sounds like a good proposal",
-                            ESignature = "bob jones",
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1452),
+                            Description = "",
+                            ESignature = "",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
                             ResolutionId = 0,
-                            Resolved = true
+                            Resolved = false
                         },
                         new
                         {
                             FeedbackRequestId = 1,
                             Accepted = true,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2013),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1509),
                             Description = "This sounds like a good proposal",
                             ESignature = "bob jones",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
@@ -288,7 +288,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 2,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2015),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1516),
                             Description = "I have this proposal",
                             ESignature = "jane doe",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -299,7 +299,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 3,
                             Accepted = true,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2018),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1523),
                             Description = "Sounds good",
                             ESignature = "Shawn Kal",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -310,7 +310,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 4,
                             Accepted = true,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2021),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1529),
                             Description = "i like this",
                             ESignature = "Emily Low",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -321,7 +321,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 5,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2026),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1539),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
@@ -332,7 +332,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 6,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2029),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1545),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
@@ -343,7 +343,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 7,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2031),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1552),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -354,7 +354,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 8,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2034),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1558),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -365,7 +365,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 9,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2038),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1566),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -376,7 +376,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 10,
                             Accepted = true,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2040),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1572),
                             Description = "This sounds like a good proposal",
                             ESignature = "bob jones",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
@@ -387,7 +387,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 11,
                             Accepted = true,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2043),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1578),
                             Description = "This sounds like a good proposal",
                             ESignature = "bob jones",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
@@ -398,7 +398,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 12,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2091),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1585),
                             Description = "I hate this proposal",
                             ESignature = "jane doe",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -409,7 +409,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 13,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2094),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1591),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -420,7 +420,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 14,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2097),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1597),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -431,7 +431,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 15,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2100),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1603),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
@@ -442,7 +442,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 16,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2103),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1609),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
@@ -453,7 +453,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 17,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2107),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1617),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -464,7 +464,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 18,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2109),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1623),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -475,7 +475,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 19,
                             Accepted = false,
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(2112),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1629),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -513,7 +513,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 0,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(1936),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1342),
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                             Status = "in progress"
                         },
@@ -521,7 +521,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 1,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(1981),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1399),
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                             Status = "in progress"
                         },
@@ -529,7 +529,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 2,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(1983),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1404),
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
                             Status = "in progress"
                         },
@@ -537,7 +537,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 3,
                             Abstract = "",
-                            CreationDate = new DateTime(2022, 10, 5, 20, 16, 37, 620, DateTimeKind.Local).AddTicks(1986),
+                            CreationDate = new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1410),
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
                             Status = "in progress"
                         });

@@ -199,10 +199,10 @@ namespace ResolutionManagement.Data.Migrations
                 columns: new[] { "ResolutionId", "Abstract", "CreationDate", "OwnerUserID", "Status" },
                 values: new object[,]
                 {
-                    { 0, "", new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1342), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
-                    { 1, "", new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1399), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
-                    { 2, "", new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1404), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "in progress" },
-                    { 3, "", new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1410), "5559d343-5062-4cd1-b0ae-25301e70a10d", "in progress" }
+                    { 0, "", new DateTime(2022, 10, 6, 22, 3, 12, 922, DateTimeKind.Local).AddTicks(9910), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
+                    { 1, "", new DateTime(2022, 10, 6, 22, 3, 12, 922, DateTimeKind.Local).AddTicks(9960), "221fedc9-3ad4-492e-bfc0-20f198923a24", "in progress" },
+                    { 2, "", new DateTime(2022, 10, 6, 22, 3, 12, 922, DateTimeKind.Local).AddTicks(9970), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "in progress" },
+                    { 3, "", new DateTime(2022, 10, 6, 22, 3, 12, 922, DateTimeKind.Local).AddTicks(9970), "5559d343-5062-4cd1-b0ae-25301e70a10d", "in progress" }
                 });
 
             migrationBuilder.InsertData(
@@ -210,26 +210,26 @@ namespace ResolutionManagement.Data.Migrations
                 columns: new[] { "FeedbackRequestId", "Accepted", "CreationDate", "Description", "ESignature", "OwnerUserID", "ResolutionId", "Resolved" },
                 values: new object[,]
                 {
-                    { 0, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1452), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0, false },
-                    { 1, true, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1509), "This sounds like a good proposal", "bob jones", "221fedc9-3ad4-492e-bfc0-20f198923a24", 0, true },
-                    { 2, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1516), "I have this proposal", "jane doe", "d34e5684-030b-4bf1-ba0b-51c424468294", 0, true },
-                    { 3, true, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1523), "Sounds good", "Shawn Kal", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0, true },
-                    { 4, true, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1529), "i like this", "Emily Low", "5559d343-5062-4cd1-b0ae-25301e70a10d", 0, true },
-                    { 5, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1539), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1, false },
-                    { 6, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1545), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 1, false },
-                    { 7, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1552), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 1, false },
-                    { 8, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1558), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1, false },
-                    { 9, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1566), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 1, false },
-                    { 10, true, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1572), "This sounds like a good proposal", "bob jones", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 2, true },
-                    { 11, true, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1578), "This sounds like a good proposal", "bob jones", "221fedc9-3ad4-492e-bfc0-20f198923a24", 2, true },
-                    { 12, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1585), "I hate this proposal", "jane doe", "d34e5684-030b-4bf1-ba0b-51c424468294", 2, true },
-                    { 13, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1591), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2, false },
-                    { 14, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1597), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 2, false },
-                    { 15, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1603), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3, false },
-                    { 16, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1609), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 3, false },
-                    { 17, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1617), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 3, false },
-                    { 18, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1623), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3, false },
-                    { 19, false, new DateTime(2022, 10, 6, 14, 26, 9, 974, DateTimeKind.Local).AddTicks(1629), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 3, false }
+                    { 0, false, new DateTime(2022, 10, 6, 22, 3, 12, 922, DateTimeKind.Local).AddTicks(9990), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0, false },
+                    { 1, true, new DateTime(2022, 10, 6, 22, 3, 12, 922, DateTimeKind.Local).AddTicks(9990), "This sounds like a good proposal", "bob jones", "221fedc9-3ad4-492e-bfc0-20f198923a24", 0, true },
+                    { 2, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local), "I have this proposal", "jane doe", "d34e5684-030b-4bf1-ba0b-51c424468294", 0, true },
+                    { 3, true, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local), "Sounds good", "Shawn Kal", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0, true },
+                    { 4, true, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local), "i like this", "Emily Low", "5559d343-5062-4cd1-b0ae-25301e70a10d", 0, true },
+                    { 5, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(10), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1, false },
+                    { 6, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(10), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 1, false },
+                    { 7, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(10), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 1, false },
+                    { 8, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(10), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1, false },
+                    { 9, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(20), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 1, false },
+                    { 10, true, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(20), "This sounds like a good proposal", "bob jones", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 2, true },
+                    { 11, true, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(20), "This sounds like a good proposal", "bob jones", "221fedc9-3ad4-492e-bfc0-20f198923a24", 2, true },
+                    { 12, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(30), "I hate this proposal", "jane doe", "d34e5684-030b-4bf1-ba0b-51c424468294", 2, true },
+                    { 13, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(30), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2, false },
+                    { 14, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(30), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 2, false },
+                    { 15, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(30), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3, false },
+                    { 16, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(40), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 3, false },
+                    { 17, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(40), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 3, false },
+                    { 18, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(40), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3, false },
+                    { 19, false, new DateTime(2022, 10, 6, 22, 3, 12, 923, DateTimeKind.Local).AddTicks(50), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 3, false }
                 });
 
             migrationBuilder.CreateIndex(

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -93,8 +94,43 @@ namespace ResolutionManagement.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                // Get Current User
+                var loggedInUserIdentity = (ClaimsIdentity)User.Identity;
+                var loggedInUserIdentityId = loggedInUserIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                Console.Write("\nCurrentId: " + loggedInUserIdentityId.Value + "\n");
+
+                // Add Resolution
+                resolution.CreationDate = DateTime.Now;
+                resolution.Status = "in progress";
+                resolution.OwnerUserID = loggedInUserIdentityId.Value;
                 _context.Add(resolution);
                 await _context.SaveChangesAsync();
+
+                // Add Feedback Requests
+                IdentityUser[] boardMembers = _userManager.GetUsersInRoleAsync("Member").Result.ToArray();
+                IdentityUser[] filteredBoardMembers = boardMembers.Where(member => member.Id != loggedInUserIdentityId.Value).ToArray();
+
+                // foreach (var user in filteredBoardMembers)
+                // {
+                //     Console.Write("filtered: " + user.Id + "\n");
+                // }
+
+                foreach (IdentityUser member in filteredBoardMembers)
+                {
+                    FeedbackRequest feedbackRequest = new FeedbackRequest();
+                    feedbackRequest.CreationDate = DateTime.Now;
+                    feedbackRequest.Accepted = false;
+                    feedbackRequest.Resolved = false;
+                    feedbackRequest.Description = "";
+                    feedbackRequest.ESignature = "";
+                    feedbackRequest.OwnerUserID = member.Id;
+                    feedbackRequest.ResolutionId = resolution.ResolutionId;
+
+                    _context.Add(feedbackRequest);
+                    await _context.SaveChangesAsync();
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ResolutionId"] = new SelectList(_context.Resolutions, "ResolutionId", "Abstract", resolution.ResolutionId);

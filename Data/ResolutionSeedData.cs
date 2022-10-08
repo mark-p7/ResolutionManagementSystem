@@ -68,16 +68,6 @@ namespace ResolutionManagementSystem.Data
                 OwnerUserID="37c1ba03-d67c-437e-ac19-2b38b123c55a"
             },
             new FeedbackRequest() {
-                FeedbackRequestId=1,
-                CreationDate=DateTime.Now,
-                ResolutionId=0,
-                Description="This sounds like a good proposal",
-                ESignature="bob jones",
-                Resolved=true,
-                Accepted=true,
-                OwnerUserID="221fedc9-3ad4-492e-bfc0-20f198923a24"
-            },
-            new FeedbackRequest() {
                 FeedbackRequestId=2,
                 CreationDate=DateTime.Now,
                 ResolutionId=0,
@@ -119,16 +109,6 @@ namespace ResolutionManagementSystem.Data
                 OwnerUserID="37c1ba03-d67c-437e-ac19-2b38b123c55a"
             },
             new FeedbackRequest() {
-                FeedbackRequestId=6,
-                CreationDate=DateTime.Now,
-                ResolutionId=1,
-                Description="",
-                ESignature="",
-                Resolved=false,
-                Accepted=false,
-                OwnerUserID="221fedc9-3ad4-492e-bfc0-20f198923a24"
-            },
-            new FeedbackRequest() {
                 FeedbackRequestId=7,
                 CreationDate=DateTime.Now,
                 ResolutionId=1,
@@ -159,16 +139,6 @@ namespace ResolutionManagementSystem.Data
                 OwnerUserID="5559d343-5062-4cd1-b0ae-25301e70a10d"
             },
             // Third Resolution
-            new FeedbackRequest() {
-                FeedbackRequestId=10,
-                CreationDate=DateTime.Now,
-                ResolutionId=2,
-                Description="This sounds like a good proposal",
-                ESignature="bob jones",
-                Resolved=true,
-                Accepted=true,
-                OwnerUserID="37c1ba03-d67c-437e-ac19-2b38b123c55a"
-            },
             new FeedbackRequest() {
                 FeedbackRequestId=11,
                 CreationDate=DateTime.Now,
@@ -249,16 +219,6 @@ namespace ResolutionManagementSystem.Data
                 Resolved=false,
                 Accepted=false,
                 OwnerUserID="c5955b95-5492-4c7b-a3cb-c749c85e3a16"
-            },
-            new FeedbackRequest() {
-                FeedbackRequestId=19,
-                CreationDate=DateTime.Now,
-                ResolutionId=3,
-                Description="",
-                ESignature="",
-                Resolved=false,
-                Accepted=false,
-                OwnerUserID="5559d343-5062-4cd1-b0ae-25301e70a10d"
             },
         };
             return feedbackRequests;

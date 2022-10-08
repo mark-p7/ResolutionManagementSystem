@@ -5,9 +5,20 @@ using ResolutionManagement.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+// builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//     options.UseSqlServer(connectionString));
+
+var host = builder.Configuration["DBHOST"] ?? "localhost";
+var port = builder.Configuration["DBPORT"] ?? "1444";
+var user = builder.Configuration["DBUSER"] ?? "sa";
+var pwd = builder.Configuration["DBPASSWORD"] ?? "SqlPassword!";
+var db = builder.Configuration["DBNAME"] ?? "ResolutionSigningSystem";
+
+var conStr = $"Server=tcp:{host},{port};Database={db};UID={user};PWD={pwd};";
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(conStr));
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)

@@ -1,8 +1,10 @@
+@using Microsoft.AspNetCore.Identity
 @model IEnumerable<ResolutionManagement.Models.Resolution>
 
 @{
     ViewData["Title"] = "Index";
     Resolution[] ResolvedResolutions = ViewData["ResolutionsAlreadyResolved"] as Resolution[];
+    IdentityUser[] BoardMembers = ViewData["BoardMembers"] as IdentityUser[];
     var i = 0;
     Console.Write("\nResolved Length: " + ResolvedResolutions.Length + "\n");
 }
@@ -29,7 +31,7 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.OwnerUserID)
+                Username
             </th>
             <th></th>
         </tr>
@@ -50,7 +52,13 @@
                 @Html.DisplayFor(modelItem => item.Status)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.OwnerUserID)
+                @foreach (IdentityUser member in BoardMembers)
+                {
+                    if (item.OwnerUserID == member.Id)
+                    {
+                        @Html.DisplayFor(modelItem => member.Email)
+                    }
+                }
             </td>
             <td>
                 @foreach (Resolution resolution in ResolvedResolutions)

@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    FeedbackRequest[] AcceptedFeedbackRequests = ViewData["AcceptedFeedbackRequests"] as FeedbackRequest[];
 }
 
 <h1>Details</h1>
@@ -46,3 +47,63 @@
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>
 </div>
+
+<br><br>
+<h1>Resolved Feedback Requests</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Feedback Request ID
+            </th>
+            <th>
+                Creation Date
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                ESignature
+            </th>
+            @* <th>
+                @Html.DisplayNameFor(model => model.OwnerUserID)
+            </th> *@
+            <th>
+                Resolved
+            </th>
+            <th>
+                Accepted
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in AcceptedFeedbackRequests) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeedbackRequestId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreationDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESignature)
+            </td>
+            @* <td>
+                @Html.DisplayFor(modelItem => item.OwnerUserID)
+            </td> *@
+            <td>
+                @Html.DisplayFor(modelItem => item.Resolved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Accepted)
+            </td>
+            <td>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

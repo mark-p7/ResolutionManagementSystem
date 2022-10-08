@@ -56,6 +56,7 @@ namespace ResolutionManagement.Controllers
             }
             Resolution[] filteredResolutionsByResolvedNoDuplicates = filteredResolutionsByResolved.Distinct().ToArray();
             ViewData["ResolutionsAlreadyResolved"] = filteredResolutionsByResolvedNoDuplicates;
+            ViewData["BoardMembers"] = _userManager.GetUsersInRoleAsync("Member").Result.ToArray();
             return _context.Resolutions != null ?
                         View(await _context.Resolutions.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Resolutions'  is null.");
@@ -75,7 +76,7 @@ namespace ResolutionManagement.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["AcceptedFeedbackRequests"] = _context.FeedbackRequests.Where(feedback => feedback.ResolutionId == id && feedback.Resolved == true).ToArray();
             return View(resolution);
         }
 

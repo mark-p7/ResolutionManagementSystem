@@ -145,11 +145,13 @@ namespace ResolutionManagement.Controllers
             {
                 return NotFound();
             }
+            var loggedInUserIdentity = (ClaimsIdentity)User.Identity;
+            var loggedInUserIdentityId = loggedInUserIdentity.FindFirst(ClaimTypes.NameIdentifier);
             FeedbackRequest[] feedbackRequests = (from FeedbackRequest in _context.FeedbackRequests select FeedbackRequest).ToArray();
             foreach (FeedbackRequest feedbackRequest in feedbackRequests)
             {
                 Console.Write(feedbackRequest.ResolutionId + "\n");
-                if (feedbackRequest.ResolutionId == id)
+                if (feedbackRequest.ResolutionId == id && feedbackRequest.OwnerUserID == loggedInUserIdentityId.Value)
                 {
                     Console.Write("Id found: " + feedbackRequest.ResolutionId + "\n\n");
                     return RedirectToAction("Edit", "FeedbackRequests", new { id = feedbackRequest.FeedbackRequestId });

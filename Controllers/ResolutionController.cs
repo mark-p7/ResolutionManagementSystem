@@ -159,12 +159,6 @@ namespace ResolutionManagement.Controllers
                 }
             }
             return NotFound();
-            // var feedback = await _context.FeedbackRequests.FindAsync();
-            // if (feedback == null)
-            // {
-            //     return NotFound();
-            // }
-            // ViewData["ResolutionId"] = new SelectList(_context.Resolutions, "ResolutionId", "Abstract", resolution.ResolutionId);
         }
 
         // GET: Resolution/Edit/5

@@ -35,23 +35,9 @@ namespace ResolutionManagement.Controllers
             Console.Write("USER ID:  " + id + "\n\n");
             List<FeedbackRequest> userFeedbacks = feedbacks.FindAll(feedback => feedback.OwnerUserID == id);
 
-            // FeedbackRequest[] userFeedbacks = Array.FindAll(feedbacks, feedback => feedback.OwnerUserID == id);
-            // foreach (var item in userFeedbacks)
-            // {
-            //     Console.Write(item.OwnerUserID + "\n");
-            // }
-            // return View(userFeedbacks);
-            // foreach (var feedback in feedbacks)
-            // {
-            //     if(feedback.OwnerUserID == id){
-
-            //     }
-            // }
             return _context.Resolutions != null ?
                     View(userFeedbacks) :
                     Problem("Entity set 'ApplicationDbContext.FeedbackRequests'  is null.");
-            // var applicationDbContext = _context.FeedbackRequests.Include(f => f.Resolution);
-            // return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: FeedbackRequests/Details/5
@@ -114,50 +100,6 @@ namespace ResolutionManagement.Controllers
             ViewData["ResolutionId"] = new SelectList(_context.Resolutions, "ResolutionId", "ResolutionId", feedbackRequest.ResolutionId);
             return View(feedbackRequest);
         }
-
-        // public async Task checkResolutionStatus(int? ResolutionId)
-        // {
-        //     Console.Write("\n\n\n HIT RESOLUTION STATUS CHECK \n\n\n");
-        //     Resolution[] resolutions = _context.Resolutions.ToArray();
-        //     Console.Write("\n\n\n HIT RESOLUTION ARRAY \n\n\n");
-        //     Resolution resolutionInQuestion = new Resolution();
-        //     Console.Write("\n\n\n HIT RESOLUTION \n\n\n");
-        //     foreach (Resolution resolution in resolutions)
-        //     {
-        //         if (resolution.ResolutionId == ResolutionId)
-        //         {
-        //             resolutionInQuestion = resolution;
-        //         }
-        //     }
-        //     Console.Write("\n\n\n HIT resolutionInQuestion \n\n\n");
-        //     FeedbackRequest[] feedbackRequestsUnFiltered = _context.FeedbackRequests.ToArray();
-        //     Console.Write("\n\n\n HIT feedbackRequestsUnFiltered \n\n\n");
-        //     FeedbackRequest[] feedbackRequests = (from FeedbackRequest in feedbackRequestsUnFiltered where FeedbackRequest.ResolutionId == ResolutionId select FeedbackRequest).ToArray();
-        //     Console.Write("\n\n\n HIT feedbackRequests \n\n\n");
-        //     int rejected = 0;
-        //     int accepted = 0;
-        //     foreach (FeedbackRequest feedbackRequest in feedbackRequests)
-        //     {
-        //         if (feedbackRequest.Resolved == false)
-        //         {
-        //             return;
-        //         }
-        //         if (feedbackRequest.Accepted == true){
-        //             accepted++;
-        //         } else {
-        //             rejected++;
-        //         }
-        //     }
-        //     Console.Write("\n\nAccepted " + accepted + "\n");
-        //     Console.Write("\n\nRejected " + rejected + "\n");
-        //     if (accepted > rejected){
-        //         resolutionInQuestion.Status = "accepted";
-        //     } else {
-        //         resolutionInQuestion.Status = "rejected";
-        //     }
-        //     _context.Update(resolutionInQuestion);
-        //     await _context.SaveChangesAsync();
-        // }
 
         // POST: FeedbackRequests/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.

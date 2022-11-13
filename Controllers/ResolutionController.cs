@@ -57,6 +57,7 @@ namespace ResolutionManagement.Controllers
             Resolution[] filteredResolutionsByResolvedNoDuplicates = filteredResolutionsByResolved.Distinct().ToArray();
             ViewData["ResolutionsAlreadyResolved"] = filteredResolutionsByResolvedNoDuplicates;
             ViewData["BoardMembers"] = _userManager.GetUsersInRoleAsync("Member").Result.ToArray();
+            ViewData["OwnerUserID"] = id;
             return _context.Resolutions != null ?
                         View(await _context.Resolutions.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Resolutions'  is null.");
@@ -103,7 +104,7 @@ namespace ResolutionManagement.Controllers
 
                 // Add Resolution
                 resolution.CreationDate = DateTime.Now;
-                resolution.Status = "in progress";
+                resolution.Status = "Draft";
                 resolution.OwnerUserID = loggedInUserIdentityId.Value;
                 _context.Add(resolution);
                 await _context.SaveChangesAsync();

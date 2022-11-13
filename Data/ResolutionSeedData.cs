@@ -24,28 +24,28 @@ namespace ResolutionManagementSystem.Data
                 ResolutionId=0,
                 CreationDate=DateTime.Now,
                 Abstract="Lets create a new campus in surrey",
-                Status="accepted",
+                Status="Accepted",
                 OwnerUserID="221fedc9-3ad4-492e-bfc0-20f198923a24"
             },
             new Resolution() {
                 ResolutionId=1,
                 CreationDate=DateTime.Now,
                 Abstract="Lets rebuild the Tech building",
-                Status="rejected",
+                Status="Rejected",
                 OwnerUserID="221fedc9-3ad4-492e-bfc0-20f198923a24"
             },
             new Resolution() {
                 ResolutionId=2,
                 CreationDate=DateTime.Now,
                 Abstract="Lets create more bathooms",
-                Status="in progress",
+                Status="Draft",
                 OwnerUserID="37c1ba03-d67c-437e-ac19-2b38b123c55a"
             },
             new Resolution() {
                 ResolutionId=3,
                 CreationDate=DateTime.Now,
                 Abstract="Replace the mascot with a more appropiate candidate",
-                Status="in progress",
+                Status="In Progress",
                 OwnerUserID="5559d343-5062-4cd1-b0ae-25301e70a10d"
             },
         };
@@ -206,7 +206,7 @@ namespace ResolutionManagementSystem.Data
                 ResolutionId=3,
                 Description="",
                 ESignature="",
-                Resolved=false,
+                Resolved=true,
                 Accepted=false,
                 OwnerUserID="d34e5684-030b-4bf1-ba0b-51c424468294"
             },

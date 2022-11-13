@@ -132,31 +132,36 @@ namespace ResolutionManagement.Controllers
                     }
                     FeedbackRequest[] feedbackRequestsUnFiltered = _context.FeedbackRequests.ToArray();
                     FeedbackRequest[] feedbackRequests = (from FeedbackRequest in feedbackRequestsUnFiltered where FeedbackRequest.ResolutionId == ResolutionId select FeedbackRequest).ToArray();
-                    int rejected = 0;
-                    int accepted = 0;
+                    double rejected = 0;
+                    double accepted = 0;
+                    double count = 0;
                     foreach (FeedbackRequest feedback in feedbackRequests)
                     {
-                        if (feedback.Resolved == false)
-                        {
-                            return RedirectToAction(nameof(Index));
-                        }
-                        if (feedback.Accepted == true)
-                        {
-                            accepted++;
-                        }
-                        else
-                        {
-                            rejected++;
+                        count++;
+                        if (feedback.Resolved == true){
+                            if (feedback.Accepted == true)
+                            {
+                                accepted++;
+                            }
+                            else
+                            {
+                                rejected++;
+                            }
                         }
                     }
-                    if (accepted > rejected)
+
+                    if (accepted / count > 0.5)
                     {
-                        resolutionInQuestion.Status = "accepted";
+                        resolutionInQuestion.Status = "Accepted";
+                    }
+                    else if (rejected / count > 0.5)
+                    {
+                        resolutionInQuestion.Status = "Rejected";
                     }
                     else
                     {
-                        resolutionInQuestion.Status = "rejected";
-                    }
+                        resolutionInQuestion.Status = "In Progress";
+                    }   
                     _context.Update(resolutionInQuestion);
                     await _context.SaveChangesAsync();
                 }

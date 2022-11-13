@@ -5,6 +5,7 @@
     ViewData["Title"] = "Index";
     Resolution[] ResolvedResolutions = ViewData["ResolutionsAlreadyResolved"] as Resolution[];
     IdentityUser[] BoardMembers = ViewData["BoardMembers"] as IdentityUser[];
+    string? id = ViewData["OwnerUserID"] as string;
     var i = 0;
     Console.Write("\nResolved Length: " + ResolvedResolutions.Length + "\n");
 }
@@ -67,9 +68,11 @@
                     {
                         @Html.ActionLink("Resolve", "Resolve", new { id=item.ResolutionId })
                     }
+                    if (resolution.OwnerUserID == id) {
+                        @Html.ActionLink("Edit", "Edit", new { id=item.ResolutionId })
+                    }
                 }
                 |
-                @Html.ActionLink("Edit", "Edit", new { id=item.ResolutionId }) |
                 @Html.ActionLink("Details", "Details", new { id=item.ResolutionId }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.ResolutionId }) |
             </td>

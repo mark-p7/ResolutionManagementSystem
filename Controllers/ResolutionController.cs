@@ -26,7 +26,8 @@ namespace ResolutionManagement.Controllers
         }
 
         // GET: Resolution
-        public async Task<IActionResult> Index()
+        // [Route("Resolution/{id}")]
+        public async Task<IActionResult> Index(string searchString)
         {
             var id = _userManager.GetUserId(User);
             // Finds Resolved Feedbacks
@@ -58,9 +59,23 @@ namespace ResolutionManagement.Controllers
             ViewData["ResolutionsAlreadyResolved"] = filteredResolutionsByResolvedNoDuplicates;
             ViewData["BoardMembers"] = _userManager.GetUsersInRoleAsync("Member").Result.ToArray();
             ViewData["OwnerUserID"] = id;
+            //added search functionality
+            // string searchString = id;
+            var resolutionsSearchResult = from m in _context.Resolutions select m;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                resolutionsSearchResult = resolutionsSearchResult.Where(s => s.Abstract!.Contains(searchString));
+            }
             return _context.Resolutions != null ?
-                        View(await _context.Resolutions.ToListAsync()) :
+                        // View(await _context.Resolutions.ToListAsync()) :
+                        View(await resolutionsSearchResult.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Resolutions'  is null.");
+        }
+
+        [HttpPost]
+        public string Index(FormCollection fc, string searchString)
+        {
+            return "<h3> From [HttpPost]Index: " + searchString + "</h3>";
         }
 
         // GET: Resolution/Details/5

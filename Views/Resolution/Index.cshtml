@@ -68,9 +68,12 @@
                     {
                         @Html.ActionLink("Resolve", "Resolve", new { id=item.ResolutionId })
                     }
-                    if (resolution.OwnerUserID == id) {
+                    if (resolution.OwnerUserID == id && resolution.Status == "Draft") {
                         @Html.ActionLink("Edit", "Edit", new { id=item.ResolutionId })
                     }
+                }
+                @if (item.OwnerUserID == id &&  item.Status == "Draft") {
+                    @Html.ActionLink("Edit", "Edit", new { id=item.ResolutionId })
                 }
                 |
                 @Html.ActionLink("Details", "Details", new { id=item.ResolutionId }) |

@@ -17,6 +17,7 @@
         Create New</a>
     
     @using (Html.BeginForm("Index","Resolution",FormMethod.Get)){
+        <p>Status: @Html.DropDownList("resolutionStatus", "All")</p>
         <p>Search: @Html.TextBox("SearchString") 
             @* <br/> *@
         <input type="submit" value="Search" class="btn btn-primary"/></p>

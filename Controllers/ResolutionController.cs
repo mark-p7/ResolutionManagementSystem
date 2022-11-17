@@ -27,7 +27,7 @@ namespace ResolutionManagement.Controllers
 
         // GET: Resolution
         // [Route("Resolution/{id}")]
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string resolutionStatus, string searchString)
         {
             var id = _userManager.GetUserId(User);
             // Finds Resolved Feedbacks
@@ -59,6 +59,17 @@ namespace ResolutionManagement.Controllers
             ViewData["ResolutionsAlreadyResolved"] = filteredResolutionsByResolvedNoDuplicates;
             ViewData["BoardMembers"] = _userManager.GetUsersInRoleAsync("Member").Result.ToArray();
             ViewData["OwnerUserID"] = id;
+
+            //Filter by status
+            var StatusList = new List<string>();
+
+            var StatusQry = from s in _context.Resolutions
+                            orderby s.Status
+                            select s.Status;
+
+            StatusList.AddRange(StatusQry.Distinct());
+            ViewBag.resolutionStatus = new SelectList(StatusList);
+
             //added search functionality
             // string searchString = id;
             var resolutionsSearchResult = from m in _context.Resolutions select m;
@@ -66,6 +77,12 @@ namespace ResolutionManagement.Controllers
             {
                 resolutionsSearchResult = resolutionsSearchResult.Where(s => s.Abstract!.Contains(searchString));
             }
+
+            if (!string.IsNullOrEmpty(resolutionStatus))
+            {
+                resolutionsSearchResult = resolutionsSearchResult.Where(x => x.Status == resolutionStatus);
+            }
+
             return _context.Resolutions != null ?
                         // View(await _context.Resolutions.ToListAsync()) :
                         View(await resolutionsSearchResult.ToListAsync()) :

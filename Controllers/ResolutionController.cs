@@ -153,8 +153,6 @@ namespace ResolutionManagement.Controllers
                 var mailRequest = new MailRequest();
                 mailRequest.Subject = "Resolution Subject";
                 mailRequest.ToEmail = "judson68@ethereal.email";
-                // mailRequest.ToEmail = "comp4976@outlook.com";
-                // mailRequest.ToEmail = "benjaminlui00@gmail.com";
                 mailRequest.Body = resolution.Abstract!;
                 using (var httpClient = new HttpClient(_clientHandler))
                 {

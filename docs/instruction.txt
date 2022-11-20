@@ -1,0 +1,86 @@
+Instruction.txt
+
+-------------------- Instruction for logging into User account and creating, editing, deleting, searching, and filtering resolutions --------------------
+
+1. Login with the following credentials
+    1. Username: 1@1.1
+    2. Password: P@$$w0rd
+2. Create New Resolution
+    1. Click on “Create New” at the top of the page, and you should be redirected to Create Resolution page
+    2. On the Rich-text-editor, type in the abstract for the resolution
+    3. Hit Create at the bottom and a new resolution is created.
+    4. If you want to check the resolution email, go to https://ethereal.email/
+        1. Login with the following credentials
+            1. Email Address: judson68@ethereal.email
+            2. Password: 8bhBB79SSDCtcVUrkn
+        2. You should be able to see the new Resolution Email with the subject “Resolution Subject” being created, and the email’s body should contain the abstract itself.
+    5. Once a Resolution has been created, its status is automatically “Draft” until another board member has chosen to resolve a feedback request. At that point it will change from “Draft” to “In Progress”
+    6. Once more than half the board members have approve the Resolution, Status for Resolution should be changed to “Accepted” OR Once more than half the board members have rejected the Resolution, Status for Resolution should be changed to “Rejected”
+3. Search for resolutions
+    1. Type in say “ Lets” in the search bar and hit “Search” on the green Search button
+    2. The displayed resolutions should be filtered down to only the matched search results
+4. Filter resolutions
+    1. Click on the dropdown next to “Status:” and select the Status you want to filter for, and click on green Search button
+    2. The displayed resolutions should be filtered by Status
+5. Edit Resolutions
+6. Click on Edit for the Resolution you created
+*please note only the resolution created by the user you're logged in as can be edited
+
+2. Edit the Abstract
+3. Hit Save
+4. You should see that the resolution’s abstract has changed
+5. Delete Resolutions
+6. Click on Delete for the Resolution you want to delete
+*please note only the resolution that is In Progress meaning it has at least one response cannot be edited nor deleted
+*if you attempt to delete or update In Progress Resolution, once you click Delete, it should redirect you back to Resolution page without deleting the resolution
+
+6. Click Delete
+7. You should be redirected to Resolution page where the Resolution you wanted to delete is now removed
+
+-------------------- Sending a feedback request --------------------
+1. Login with the following credentials
+    1. 1@1.1
+    2. P@$$w0rd
+2. Head over to the FeedbackRequests tab
+3. Notice that only 1 of the feedback requests have the option to resolve on the very far right as all the other feedback requests have been resolved by the current user account
+4. Click on the “Resolve” link to resolve the feedback request
+5. Here you can input the Description of your feedback request, your ESignature, and an option to either accept or decline.
+6. Once done inputting your information, you can click “Resolve” to resolve your current feedback request.
+7. Notice that you can no longer resolve a feedback request that you have already resolved.
+8. If you go back to Resolutions, Status should be updated to “In Progress”
+
+-------------------- Instructions for Logging into an Admin account and adding, editing and deleting roles --------------------
+1. Login with the following credentials
+    1. a@a.a
+    2. P@$$w0rd
+2. Head over to the “Roles” tab and create a new role by inputting a name and clicking “Create”
+3. Edit the role by clicking “Edit” on the role you wish to edit
+4. You can change the name of the role to anything you like
+5. You can Delete a role by simply clicking “Delete” on the role you wish to delete
+6. You can try to Edit or Delete the Admin role but it won’t actually let you do so
+
+-------------------- Instructions for adding or editing roles from users -------------------- 
+1. Login with the following credentials
+    1. a@a.a
+    2. P@$$w0rd
+2. Head over to the “Users” to see all the Users that have created an account
+3. Edit the role of a user by clicking “Edit Role” on the role of the user you want to edit
+4. You can change a users role by changing the name of the role in the name input field to whichever role you want
+    1. Note: 
+    2. If the selected user does not have a role, the name field will be empty and whatever role you input will be added to the user
+    3. If you enter an invalid role, it will redirect you back to the Users page and not take your changes
+    4. You cannot edit nor remove a user from the “Admin” role
+
+-------------------- Instructions for deleting a role from a user --------------------
+1. Login with the following credentials
+    1. a@a.a
+    2. P@$$w0rd
+2. Head over to the “Users” to see all the Users that have created an account
+3. Delete the role of a user by clicking “Edit Role” on the role of the user you want to have deleted
+4. Then make sure they are in a role by checking the name field. If the name field is empty, it means that the selected user does not have a role
+5. Then after making sure they are in a role that you want to remove them from, simply edit the name input to “n/a” without the brackets.
+    1. Note:
+    2. You cannot remove admin accounts from the admin role
+6. Click “Save”
+7. Click on “Edit Role” of the same user to check if they have successfully been removed from that role
+8. If the name input is empty, it means that the role has successfully been stripped from the user

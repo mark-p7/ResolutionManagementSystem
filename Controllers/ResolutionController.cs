@@ -296,12 +296,27 @@ namespace ResolutionManagement.Controllers
                 return Problem("Entity set 'ApplicationDbContext.Resolutions'  is null.");
             }
             var resolution = await _context.Resolutions.FindAsync(id);
+            FeedbackRequest[] feedbackRequests = (from FeedbackRequest in _context.FeedbackRequests select FeedbackRequest).ToArray();
             if (resolution != null)
             {
-                _context.Resolutions.Remove(resolution);
+                if (resolution.Status == "Draft")
+                {
+                    for (int i = 0; i < feedbackRequests.Count(); i++)
+                    {
+                        if (feedbackRequests[i].ResolutionId == id)
+                        {
+                            _context.FeedbackRequests.Remove(feedbackRequests[i]);
+                        }
+                    }
+                    await _context.SaveChangesAsync();
+                    _context.Resolutions.Remove(resolution);
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 

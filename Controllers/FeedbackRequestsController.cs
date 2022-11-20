@@ -23,7 +23,7 @@ namespace ResolutionManagement.Controllers
             _logger = logger;
         }
 
-        // GET: FeedbackRequestsa
+        // GET: FeedbackRequests
         public async Task<IActionResult> Index()
         {
             var id = _userManager.GetUserId(User);

@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Identity
+
+@{
+    ViewData["Title"] = "Index";
+    List<IdentityUser> users = ViewData["Users"] as List<IdentityUser>;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Users:
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (IdentityUser user in users) {
+        <tr>
+            <td>
+                @user.UserName
+            </td>
+            <td>
+                @Html.ActionLink("Edit Role", "Edit", new { id = user.Id }) 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

@@ -14,7 +14,7 @@ using ResolutionManagement.Data;
 
 namespace ResolutionManagementSystem.Controllers
 {
-    [Authorize(Roles = "Admin")] 
+    [Authorize(Roles = "Admin")]
     public class UserController : Controller
     {
         private static IdentityUser currentUser = new IdentityUser();
@@ -78,12 +78,18 @@ namespace ResolutionManagementSystem.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([Bind("Id,Name,NormalizedName,ConcurrentStamp")] IdentityRole role)
         {
-            // Console.WriteLine(currentUser.UserName);
-            Console.WriteLine("role: " + role.Name);
+            if (role.Name == null)
+            {
+                return RedirectToAction(nameof(Index));
+            }
             role.NormalizedName = role.Name.ToUpper();
-            Console.WriteLine("role: " + role.NormalizedName);
+            IdentityUser user = await _userManager.FindByIdAsync(currentUser.Id);
             if (role.Name == "n/a")
             {
+                if (currentRole.Name != null)
+                {
+                    await _userManager.RemoveFromRoleAsync(user, currentRole.Name);
+                }
                 return RedirectToAction(nameof(Index));
             }
             IdentityRole roleObj = await _roleManager.FindByNameAsync(role.Name);
@@ -91,9 +97,6 @@ namespace ResolutionManagementSystem.Controllers
             {
                 return RedirectToAction(nameof(Index));
             }
-            Console.WriteLine("Current user: " + currentUser.UserName);
-            IdentityUser user = await _userManager.FindByIdAsync(currentUser.Id);
-            Console.WriteLine("UserName: " + user.UserName);
             if (currentRole == null)
             {
                 return RedirectToAction(nameof(Index));

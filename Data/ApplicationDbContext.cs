@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ResolutionManagement.Models;
@@ -15,6 +15,7 @@ public class ApplicationDbContext : IdentityDbContext
 
     public DbSet<Resolution> Resolutions { get; set; }
     public DbSet<FeedbackRequest> FeedbackRequests { get; set; }
+    public DbSet<IdentityRole> IdentityRoles { get; set; }
     public object Resolution { get; internal set; }
 
     protected override void OnModelCreating(ModelBuilder builder)

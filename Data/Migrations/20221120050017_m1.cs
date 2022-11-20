@@ -55,7 +55,7 @@ namespace ResolutionManagement.Data.Migrations
                     ResolutionId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Abstract = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Abstract = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     Status = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     OwnerUserID = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
@@ -177,8 +177,8 @@ namespace ResolutionManagement.Data.Migrations
                     FeedbackRequestId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ESignature = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
+                    ESignature = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OwnerUserID = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Resolved = table.Column<bool>(type: "bit", nullable: true),
                     Accepted = table.Column<bool>(type: "bit", nullable: true),
@@ -199,17 +199,10 @@ namespace ResolutionManagement.Data.Migrations
                 columns: new[] { "ResolutionId", "Abstract", "CreationDate", "OwnerUserID", "Status" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:Data/Migrations/20221120032930_m1.cs
-                    { 0, "Lets create a new campus in surrey", new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(10), "221fedc9-3ad4-492e-bfc0-20f198923a24", "Accepted" },
-                    { 1, "Lets rebuild the Tech building", new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(40), "221fedc9-3ad4-492e-bfc0-20f198923a24", "Rejected" },
-                    { 2, "Lets create more bathooms", new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(50), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "Draft" },
-                    { 3, "Replace the mascot with a more appropiate candidate", new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(50), "5559d343-5062-4cd1-b0ae-25301e70a10d", "In Progress" }
-========
-                    { 0, "Lets create a new campus in surrey", new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8530), "221fedc9-3ad4-492e-bfc0-20f198923a24", "Accepted" },
-                    { 1, "Lets rebuild the Tech building", new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8580), "221fedc9-3ad4-492e-bfc0-20f198923a24", "Rejected" },
-                    { 2, "Lets create more bathooms", new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8580), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "Draft" },
-                    { 3, "Replace the mascot with a more appropiate candidate", new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8590), "5559d343-5062-4cd1-b0ae-25301e70a10d", "In Progress" }
->>>>>>>> markadmin:Data/Migrations/20221120043606_m1.cs
+                    { 0, "Lets create a new campus in surrey", new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1170), "221fedc9-3ad4-492e-bfc0-20f198923a24", "Accepted" },
+                    { 1, "Lets rebuild the Tech building", new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1210), "221fedc9-3ad4-492e-bfc0-20f198923a24", "Rejected" },
+                    { 2, "Lets create more bathooms", new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1210), "37c1ba03-d67c-437e-ac19-2b38b123c55a", "Draft" },
+                    { 3, "Replace the mascot with a more appropiate candidate", new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1210), "5559d343-5062-4cd1-b0ae-25301e70a10d", "In Progress" }
                 });
 
             migrationBuilder.InsertData(
@@ -217,41 +210,22 @@ namespace ResolutionManagement.Data.Migrations
                 columns: new[] { "FeedbackRequestId", "Accepted", "CreationDate", "Description", "ESignature", "OwnerUserID", "ResolutionId", "Resolved" },
                 values: new object[,]
                 {
-<<<<<<<< HEAD:Data/Migrations/20221120032930_m1.cs
-                    { 0, true, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(90), "sure", "jane", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0, true },
-                    { 2, true, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(90), "Why not", "bob", "d34e5684-030b-4bf1-ba0b-51c424468294", 0, true },
-                    { 3, true, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(90), "Sounds good", "shawn", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0, true },
-                    { 4, true, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100), "i like this", "emily", "5559d343-5062-4cd1-b0ae-25301e70a10d", 0, true },
-                    { 5, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100), "This Resolution can be improved", "jane", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1, true },
-                    { 7, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100), "This won't work", "bob", "d34e5684-030b-4bf1-ba0b-51c424468294", 1, true },
-                    { 8, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100), "I don't like this idea", "shawn", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1, true },
-                    { 9, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110), "I don't think we should go through with this", "emily", "5559d343-5062-4cd1-b0ae-25301e70a10d", 1, true },
-                    { 11, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 2, false },
-                    { 12, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 2, false },
-                    { 13, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2, false },
-                    { 14, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 2, false },
-                    { 15, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3, false },
-                    { 16, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 3, false },
-                    { 17, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 3, true },
-                    { 18, false, new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3, false }
-========
-                    { 0, true, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8660), "sure", "jane", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0, true },
-                    { 2, true, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8670), "Why not", "bob", "d34e5684-030b-4bf1-ba0b-51c424468294", 0, true },
-                    { 3, true, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8670), "Sounds good", "shawn", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0, true },
-                    { 4, true, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8670), "i like this", "emily", "5559d343-5062-4cd1-b0ae-25301e70a10d", 0, true },
-                    { 5, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8670), "This Resolution can be improved", "jane", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1, true },
-                    { 7, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8680), "This won't work", "bob", "d34e5684-030b-4bf1-ba0b-51c424468294", 1, true },
-                    { 8, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8680), "I don't like this idea", "shawn", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1, true },
-                    { 9, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8680), "I don't think we should go through with this", "emily", "5559d343-5062-4cd1-b0ae-25301e70a10d", 1, true },
-                    { 11, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8680), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 2, false },
-                    { 12, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8690), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 2, false },
-                    { 13, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8690), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2, false },
-                    { 14, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8690), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 2, false },
-                    { 15, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8690), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3, false },
-                    { 16, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8700), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 3, false },
-                    { 17, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8700), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 3, true },
-                    { 18, false, new DateTime(2022, 11, 19, 20, 36, 5, 909, DateTimeKind.Local).AddTicks(8700), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3, false }
->>>>>>>> markadmin:Data/Migrations/20221120043606_m1.cs
+                    { 0, true, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1270), "sure", "jane", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 0, true },
+                    { 2, true, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1270), "Why not", "bob", "d34e5684-030b-4bf1-ba0b-51c424468294", 0, true },
+                    { 3, true, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1270), "Sounds good", "shawn", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 0, true },
+                    { 4, true, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1280), "i like this", "emily", "5559d343-5062-4cd1-b0ae-25301e70a10d", 0, true },
+                    { 5, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1280), "This Resolution can be improved", "jane", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 1, true },
+                    { 7, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1280), "This won't work", "bob", "d34e5684-030b-4bf1-ba0b-51c424468294", 1, true },
+                    { 8, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1290), "I don't like this idea", "shawn", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 1, true },
+                    { 9, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1290), "I don't think we should go through with this", "emily", "5559d343-5062-4cd1-b0ae-25301e70a10d", 1, true },
+                    { 11, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1290), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 2, false },
+                    { 12, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1290), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 2, false },
+                    { 13, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1300), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 2, false },
+                    { 14, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1300), "", "", "5559d343-5062-4cd1-b0ae-25301e70a10d", 2, false },
+                    { 15, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1300), "", "", "37c1ba03-d67c-437e-ac19-2b38b123c55a", 3, false },
+                    { 16, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1300), "", "", "221fedc9-3ad4-492e-bfc0-20f198923a24", 3, false },
+                    { 17, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1300), "", "", "d34e5684-030b-4bf1-ba0b-51c424468294", 3, true },
+                    { 18, false, new DateTime(2022, 11, 19, 21, 0, 17, 421, DateTimeKind.Local).AddTicks(1310), "", "", "c5955b95-5492-4c7b-a3cb-c749c85e3a16", 3, false }
                 });
 
             migrationBuilder.CreateIndex(

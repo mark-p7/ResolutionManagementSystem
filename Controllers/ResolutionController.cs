@@ -2,13 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using ResolutionManagement.Data;
 using ResolutionManagement.Models;
+using ResolutionManagementSystem.Models;
 
 namespace ResolutionManagement.Controllers
 {
@@ -18,11 +21,16 @@ namespace ResolutionManagement.Controllers
         private readonly ILogger<ResolutionController> _logger;
 
         private readonly UserManager<IdentityUser> _userManager;
+
+        HttpClientHandler _clientHandler = new HttpClientHandler();
+
         public ResolutionController(ILogger<ResolutionController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
             _logger = logger;
             _userManager = userManager;
+            _clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
+
         }
 
         // GET: Resolution
@@ -123,7 +131,7 @@ namespace ResolutionManagement.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ResolutionId,CreationDate,Abstract,Status,OwnerUserID")] Resolution resolution)
         {
             if (ModelState.IsValid)
@@ -132,7 +140,7 @@ namespace ResolutionManagement.Controllers
                 // Get Current User
                 var loggedInUserIdentity = (ClaimsIdentity)User.Identity;
                 var loggedInUserIdentityId = loggedInUserIdentity.FindFirst(ClaimTypes.NameIdentifier);
-                Console.Write("\nCurrentId: " + loggedInUserIdentityId.Value + "\n");
+                // Console.Write("\nCurrentId: " + loggedInUserIdentityId.Value + "\n");
 
                 // Add Resolution
                 resolution.CreationDate = DateTime.Now;
@@ -140,6 +148,20 @@ namespace ResolutionManagement.Controllers
                 resolution.OwnerUserID = loggedInUserIdentityId.Value;
                 _context.Add(resolution);
                 await _context.SaveChangesAsync();
+
+                // Send resolution email to board members
+                var mailRequest = new MailRequest();
+                mailRequest.Subject = "Resolution Subject";
+                mailRequest.ToEmail = "judson68@ethereal.email";
+                // mailRequest.ToEmail = "comp4976@outlook.com";
+                // mailRequest.ToEmail = "benjaminlui00@gmail.com";
+                mailRequest.Body = resolution.Abstract!;
+                using (var httpClient = new HttpClient(_clientHandler))
+                {
+                    StringContent content = new StringContent(JsonConvert.SerializeObject(mailRequest), Encoding.UTF8, "application/json");
+
+                    await httpClient.PostAsync("https://localhost:7188/api/mail/send", content);
+                }
 
                 // Add Feedback Requests
                 IdentityUser[] boardMembers = _userManager.GetUsersInRoleAsync("Member").Result.ToArray();

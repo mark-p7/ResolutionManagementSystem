@@ -4,6 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/ckeditor/ckeditor.js"></script>
+
 <h1>Create</h1>
 
 <h4>Resolution</h4>
@@ -14,7 +17,10 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Abstract" class="control-label"></label>
-                <input asp-for="Abstract" class="form-control" />
+                @* <input asp-for="Abstract" class="form-control" /> *@
+                <div ass="col-md-10">
+                    <textarea asp-for="Abstract" id="Abstract" class="ckeditor" name="Abstract"></textarea>
+                </div>
                 <span asp-validation-for="Abstract" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -29,5 +35,10 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('#Abstract');
+    });
+</script>
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

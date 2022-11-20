@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using ResolutionManagement.Data;
+using ResolutionManagementSystem.Services;
+using ResolutionManagementSystem.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,8 @@ options =>
 .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.AddTransient<IMailService, MailService>();
 
 var app = builder.Build();
 

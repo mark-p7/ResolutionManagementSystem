@@ -264,11 +264,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 0,
                             Accepted = true,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3010),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9110),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(90),
                             Description = "sure",
                             ESignature = "jane",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
@@ -279,11 +275,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 2,
                             Accepted = true,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3020),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9120),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(90),
                             Description = "Why not",
                             ESignature = "bob",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -294,11 +286,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 3,
                             Accepted = true,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3020),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9120),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(90),
                             Description = "Sounds good",
                             ESignature = "shawn",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -309,11 +297,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 4,
                             Accepted = true,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3020),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9120),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100),
                             Description = "i like this",
                             ESignature = "emily",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -324,11 +308,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 5,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3020),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9120),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100),
                             Description = "This Resolution can be improved",
                             ESignature = "jane",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
@@ -339,11 +319,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 7,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3030),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9130),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100),
                             Description = "This won't work",
                             ESignature = "bob",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -354,11 +330,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 8,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3030),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9130),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(100),
                             Description = "I don't like this idea",
                             ESignature = "shawn",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -369,11 +341,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 9,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3030),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9130),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110),
                             Description = "I don't think we should go through with this",
                             ESignature = "emily",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -384,11 +352,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 11,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3030),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9130),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
@@ -399,11 +363,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 12,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3040),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9140),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -414,11 +374,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 13,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3040),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9140),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(110),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -429,11 +385,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 14,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3040),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9140),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
@@ -444,11 +396,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 15,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3040),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9140),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
@@ -459,11 +407,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 16,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3040),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9140),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
@@ -474,11 +418,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 17,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3050),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9150),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "d34e5684-030b-4bf1-ba0b-51c424468294",
@@ -489,11 +429,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             FeedbackRequestId = 18,
                             Accepted = false,
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(3050),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9150),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(120),
                             Description = "",
                             ESignature = "",
                             OwnerUserID = "c5955b95-5492-4c7b-a3cb-c749c85e3a16",
@@ -531,11 +467,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 0,
                             Abstract = "Lets create a new campus in surrey",
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(2940),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9010),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(10),
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                             Status = "Accepted"
                         },
@@ -543,11 +475,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 1,
                             Abstract = "Lets rebuild the Tech building",
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(2970),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9070),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(40),
                             OwnerUserID = "221fedc9-3ad4-492e-bfc0-20f198923a24",
                             Status = "Rejected"
                         },
@@ -555,11 +483,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 2,
                             Abstract = "Lets create more bathooms",
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(2980),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9070),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(50),
                             OwnerUserID = "37c1ba03-d67c-437e-ac19-2b38b123c55a",
                             Status = "Draft"
                         },
@@ -567,11 +491,7 @@ namespace ResolutionManagement.Data.Migrations
                         {
                             ResolutionId = 3,
                             Abstract = "Replace the mascot with a more appropiate candidate",
-<<<<<<< HEAD
-                            CreationDate = new DateTime(2022, 11, 19, 13, 6, 35, 563, DateTimeKind.Local).AddTicks(2980),
-=======
-                            CreationDate = new DateTime(2022, 11, 18, 18, 16, 46, 479, DateTimeKind.Local).AddTicks(9070),
->>>>>>> markadmin
+                            CreationDate = new DateTime(2022, 11, 19, 19, 29, 30, 828, DateTimeKind.Local).AddTicks(50),
                             OwnerUserID = "5559d343-5062-4cd1-b0ae-25301e70a10d",
                             Status = "In Progress"
                         });

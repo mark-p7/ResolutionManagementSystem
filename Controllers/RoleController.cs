@@ -14,7 +14,7 @@ using ResolutionManagement.Data;
 
 namespace ResolutionManagementSystem.Controllers
 {
-    [Authorize(Roles = "Admin")] 
+    [Authorize(Roles = "Admin")]
     public class RoleController : Controller
     {
         private ApplicationDbContext _context;
@@ -89,7 +89,10 @@ namespace ResolutionManagementSystem.Controllers
             {
                 return NotFound();
             }
-
+            if (role.NormalizedName == "ADMIN")
+            {
+                return View(role);
+            }
             if (ModelState.IsValid)
             {
                 try

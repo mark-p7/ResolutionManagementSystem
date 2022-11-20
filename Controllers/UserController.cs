@@ -86,6 +86,10 @@ namespace ResolutionManagementSystem.Controllers
             IdentityUser user = await _userManager.FindByIdAsync(currentUser.Id);
             if (role.Name == "n/a")
             {
+                if (currentRole.Name == "Admin")
+                {
+                    return RedirectToAction(nameof(Index));
+                }
                 if (currentRole.Name != null)
                 {
                     await _userManager.RemoveFromRoleAsync(user, currentRole.Name);
